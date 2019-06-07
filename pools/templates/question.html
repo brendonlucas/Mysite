@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+</head>
+<style>
+
+a:link {
+text-decoration:none;
+}
+
+</style>
+<body>
+<h1> {{ question.question_text }}</h1>
+<p>Data: {{ question.pub_date }}</p>
+<hr>
+<p style="font-size: 30px; font-weight: bold; "> Escolhas:</p>
+{% for escolha in escolhas %}
+    {% if escolha.question_id == question.id %}
+    <p style="margin-left: 20px; font-size: 20px"> {{ escolha.choice_text }}</p>
+    {% endif %}
+{% endfor %}
+<br>
+<a href="{% url 'home' %}" style="padding: 5px; outline-color: lightskyblue; outline-style: groove; background-color: lightskyblue"> Voltar </a>
+
+
+
+</body>
+</html>

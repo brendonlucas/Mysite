@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+
+a:link {
+text-decoration:none;
+}
+
+</style>
+<body>
+<h1>Bem vindo</h1>
+{% if questoes %}
+    <ul>
+        {% for questao in questoes %}
+        <a href="{% url 'question' questao.id %}"> {{ questao.question_text }}</a>
+        <p style="font-size:10px"> Data: {{ questao.pub_date }}</p>
+        <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma questão encontrada</p>
+{% endif %}
+
+</body>
+</html>
